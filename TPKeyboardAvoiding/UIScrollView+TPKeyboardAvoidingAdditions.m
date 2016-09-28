@@ -206,8 +206,9 @@ static const int kStateKey;
     // Ignore any keyboard notification that occur while we scroll
     //  (seems to be an iOS 9 bug that causes jumping text in UITextField)
     state.ignoringNotifications = YES;
-    
-    CGFloat visibleSpace = self.bounds.size.height - self.contentInset.top - self.contentInset.bottom;
+
+    CGFloat inputAccessoryHeight = firstResponder.inputAccessoryView.bounds.size.height;
+    CGFloat visibleSpace = self.bounds.size.height - self.contentInset.top - self.contentInset.bottom - inputAccessoryHeight;
     
     CGPoint idealOffset
         = CGPointMake(self.contentOffset.x,
